@@ -1,0 +1,71 @@
+<settings>
+    <!-- Whether any schema name should be rendered at all.
+         Use this for single-schema environments, or when all objects are made
+         available using synonyms.
+         
+         Defaults to "true" -->
+    <renderSchema>false</renderSchema>
+    
+    <!-- Configure render mapping for runtime schema / table rewriting in
+         generated SQL. This is described in another section of the manual -->
+    <renderMapping>...</renderMapping>
+
+    <!-- Whether rendered schema, table, column names, etc should be quoted
+         in rendered SQL, or transformed in any other way.
+         - "Quoted", `Quoted`, or [Quoted] : QUOTED
+         - UPPER_CASED                     : UPPER
+         - lower_cased                     : LOWER
+         - CasedAsReportedByTheDatabase    : AS_IS
+         
+         Defaults to "QUOTED" -->
+    <renderNameStyle>LOWER</renderNameStyle>
+
+    <!-- Whether SQL keywords should be rendered with upper or lower case.
+    
+         Defaults to "LOWER" -->
+    <renderKeywordStyle>UPPER</renderKeywordStyle>
+    
+    <!-- Whether rendered SQL should be pretty-printed.
+    
+         Defaults to "false" -->
+    <renderFormatted>false</renderFormatted>
+<!-- Whether rendered bind values should be rendered as:
+         - question marks   : INDEXED
+         - named parameters : NAMED
+         - inlined values   : INLINED
+         
+         Defaults to "INDEXED".
+         
+         This value is overridden by statementType == STATIC_STATEMENT, in
+         case of which, this defaults to INLINED -->
+    <paramType>INDEXED</paramType>
+    
+    <!-- The type of statement that is to be executed.
+         - PreparedStatement with bind values : PREPARED_STATEMENT
+         - Statement without bind values      : STATIC_STATEMENT
+         
+         Defaults to "PREPARED_STATEMENT" -->
+    <statementType>PREPARED_STATEMENT</statementType>
+    
+    <!-- When set to true, this will add jOOQ's default logging ExecuteListeners
+    
+         Defaults to "true" -->
+    <executeLogging>true</executeLogging>
+ <!-- Whether store() and delete() methods should be executed with optimistic locking.
+    
+         Defaults to "false" -->
+    <executeWithOptimisticLocking>false</executeWithOptimisticLocking>
+
+    <!-- Whether fetched records should be attached to the fetching configuration.
+     
+         Defaults to "true" -->
+    <attachRecords>true</attachRecords>
+
+    <!-- Whether primary key values are deemed to be "updatable" in jOOQ
+      
+         Setting this to "true" will allow for updating primary key values through
+         UpdatableRecord.store() and UpdatableRecord.update()
+         
+    Defaults to "false" -->
+    <updatablePrimaryKeys>false</updatablePrimaryKeys>
+</settings>
